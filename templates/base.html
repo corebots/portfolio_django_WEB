@@ -1,0 +1,377 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-136645844-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'UA-136645844-1');
+    </script>
+
+    <!-- site title-->
+    <title>COREBOTS</title>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="shortcut icon" type="image/x-icon" href="{% static '/img/favicon.ico' %}"/>
+
+    <!-- font awesome for menu envelope and other icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="{% static '/css/style.css' %}">
+    <link rel="stylesheet" type="text/css" href="https://rsms.me/inter/inter.css">
+    <link rel="stylesheet" type="text/css" href="{% static '/hamburgers/dist/hamburgers.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static '/jquery-flipster/dist/jquery.flipster.min.css' %}">
+<!--    <script src="{% static 'js/main.js' %}"></script>-->
+    {% include "fancybox/fancybox_css.html" %} {# Before the closing head tag #}
+</head>
+
+<!-- BODY -->
+<body>
+
+<!-- wrap whole page in swup container for page transitions-->
+<!--<main id="swup" class="transition-fade">-->
+
+    <!-- navbar  -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-transparent fixed-top navbar-fixed-top" role="navigation">
+        <div class="container-fluid" style=" margin-bottom: 0px;">
+
+            <!-- Brand -->
+            <a class="navbar-brand px-1 px-lg-3" href="{% url 'home' %}">
+                <svg width="31" height="20" viewBox="0 0 31 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                          d="M10 20H20.3044H20.3142C25.8325 19.9947 30.3044 15.5196 30.3044 10C30.3044 4.48042 25.8325 0.00530012 20.3142 0H20.3044H10H9.95036V0.000122008C4.45035 0.0268539 0 4.49371 0 10C0 15.5063 4.45035 19.9731 9.95036 19.9999V20H10ZM15.6752 4.00709C15.6752 3.22508 15.0413 2.59114 14.2593 2.59114C13.4773 2.59114 12.8433 3.22508 12.8433 4.00709V10.0057C12.8433 14.1007 16.163 17.4202 20.2579 17.4202C24.3529 17.4202 27.6725 14.1007 27.6725 10.0057C27.6725 5.91075 24.3529 2.59118 20.2579 2.59118H19.846C19.0679 2.59118 18.4372 3.22193 18.4372 4C18.4372 4.77807 19.0679 5.40882 19.846 5.40882L20.2578 5.40882C22.7887 5.40882 24.8404 7.46044 24.8404 9.99133C24.8404 12.5222 22.7887 14.5738 20.2578 14.5738C17.7269 14.5738 15.6752 12.5222 15.6752 9.99133L15.6752 4.00709ZM10.1101 3.47744C10.1101 3.00357 9.7284 2.6318 9.25453 2.6318C5.86835 2.6318 2.63288 5.93654 2.63288 10.0259C2.63288 14.1154 5.94801 17.4304 10.0374 17.4304L10.1086 17.4304L10.1086 17.4304H10.1813C10.4318 17.4304 10.6795 17.4179 10.9237 17.3936C11.8466 17.3018 12.1233 16.2 11.6347 15.4116L11.6044 15.3622C11.3082 14.8781 10.7488 14.6164 10.1813 14.6164H10.1101L10.1101 14.6164L10.1101 14.6164H10.0374C7.51 14.6164 5.46111 12.5676 5.46111 10.0401C5.46111 7.51269 6.96358 5.46389 9.4153 5.46389C9.79725 5.46389 10.1101 5.15162 10.1101 4.76966V3.47744Z"
+                          fill="#4F4F4F"/>
+                </svg>
+            </a>
+
+            <!-- Toggler/collapsibe Button -->
+            <button class="hamburger hamburger--minus navbar-toggler px-0 px-lg-3 " type="button" data-toggle="collapse"
+                    aria-expanded="false" aria-controls="navbar"
+                    data-target="#collapsibleNavbar">
+                <span class="hamburger-box">
+                    <span class="hamburger-inner"></span>
+                </span>
+            </button>
+<!-- removed from all navlinks after swup has been disabled:  data-toggle="collapse" data-target=".navbar-collapse.show"-->
+            <!-- Navbar links -->
+            <div class="collapse navbar-collapse " id="collapsibleNavbar">
+                <ul class="navbar-nav ml-auto ">
+                    <li class="nav-item p-2 p-lg-0 px-0 px-lg-3 px-lg-2">
+                        <a class="nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item p-2 p-lg-0 px-0 px-lg-3 px-lg-2">
+                        <a class="nav-link" href="{% url 'photologue:gallery-list' %} ">Photography</a>
+                    </li>
+                    <li class="nav-item p-2 p-lg-0 px-0 px-lg-3 px-lg-2">
+                        <a class="nav-link" href="{% url 'design' %}">Design</a>
+                    </li>
+                    <li class="nav-item p-2 p-lg-0 px-0 px-lg-3 px-lg-2">
+                        <a class="nav-link" href="{% url 'about' %}">About</a>
+                    </li>
+                    <li style="margin-top: -1px;" class="nav-item p-0 p-lg-0 px-2 px-lg-3 px-lg-2 ">
+                        <a class="nav-link" href="{% url 'contact' %}" >
+                            <svg width="20" height="16" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M19.6211 5.75616C19.7734 5.63506 20 5.74834 20 5.93975L20 14C20 15.0352 19.1602 15.5 18.125 15.5H1.875C0.839844 15.5 0 15.0352 0 14L0 5.94366C0 5.74834 0.222656 5.63897 0.378906 5.76006C1.25391 6.43975 2.41406 7.30303 6.39844 10.1976C7.22266 10.7991 8.61328 12.0647 10 12.0569C11.3945 12.0687 12.8125 10.7757 13.6055 10.1976C17.5898 7.30303 18.7461 6.43584 19.6211 5.75616ZM10 9.25461C10.9062 9.27023 12.2109 8.11398 12.8672 7.63742C18.0508 3.8757 18.4453 3.54758 19.6406 2.61008C19.8672 2.43429 20 2.28906 20 2C20 0.964844 19.1602 0.5 18.125 0.5H1.875C0.839844 0.5 0 0.964844 0 2C0 2.28906 0.132812 2.43039 0.359375 2.61008C1.55469 3.54367 1.94922 3.8757 7.13281 7.63742C7.78906 8.11398 9.09375 9.27023 10 9.25461Z" fill="#4F4F4F"/>
+</svg>
+                            <span class="sr-only ">(current)</span>
+                        </a>
+                    </li>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+
+    <!-- CONTENT from for inherited sites to place -->
+
+    {% block content %}
+
+    {% endblock %}
+
+    <footer style="background-color: black; overflow: hidden; box-shadow: 0 50vh 0 50vh #000;" class="container  ">
+        <br>
+        <div class=" container justify-content ">
+            <div class="row">
+
+                <div class="col-4 p-2 p-lg-3 px-lg-2 justify-content-left text-left"  style="color:gray"><small>View old website<br>Download my CV</small></div>
+
+                <div class="col-4 p-2 p-lg-3 px-lg-2 justify-content-center text-center" style="color:gray"><small>Website by COREBOTS, 2019.<br>Powered by Django.</small></div>
+
+                <div class="col-4 p-2 p-lg-3 px-lg-2 justify-content-right text-right" style="color:gray"><small>Send me a message<br>Disclaimer</small></div>
+            </div>
+
+        </div>
+
+
+        <div class=" row justify-space-between">
+            <div class="col-12  p-5 p-sm-5 justify-content-center text-center" style="text-align:center">
+                <a href="mailto:hello@corebots.design">
+
+                <svg width="31" height="20" viewBox="0 0 31 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                          d="M10 20H20.3044H20.3142C25.8325 19.9947 30.3044 15.5196 30.3044 10C30.3044 4.48042 25.8325 0.00530012 20.3142 0H20.3044H10H9.95036V0.000122008C4.45035 0.0268539 0 4.49371 0 10C0 15.5063 4.45035 19.9731 9.95036 19.9999V20H10ZM15.6752 4.00709C15.6752 3.22508 15.0413 2.59114 14.2593 2.59114C13.4773 2.59114 12.8433 3.22508 12.8433 4.00709V10.0057C12.8433 14.1007 16.163 17.4202 20.2579 17.4202C24.3529 17.4202 27.6725 14.1007 27.6725 10.0057C27.6725 5.91075 24.3529 2.59118 20.2579 2.59118H19.846C19.0679 2.59118 18.4372 3.22193 18.4372 4C18.4372 4.77807 19.0679 5.40882 19.846 5.40882L20.2578 5.40882C22.7887 5.40882 24.8404 7.46044 24.8404 9.99133C24.8404 12.5222 22.7887 14.5738 20.2578 14.5738C17.7269 14.5738 15.6752 12.5222 15.6752 9.99133L15.6752 4.00709ZM10.1101 3.47744C10.1101 3.00357 9.7284 2.6318 9.25453 2.6318C5.86835 2.6318 2.63288 5.93654 2.63288 10.0259C2.63288 14.1154 5.94801 17.4304 10.0374 17.4304L10.1086 17.4304L10.1086 17.4304H10.1813C10.4318 17.4304 10.6795 17.4179 10.9237 17.3936C11.8466 17.3018 12.1233 16.2 11.6347 15.4116L11.6044 15.3622C11.3082 14.8781 10.7488 14.6164 10.1813 14.6164H10.1101L10.1101 14.6164L10.1101 14.6164H10.0374C7.51 14.6164 5.46111 12.5676 5.46111 10.0401C5.46111 7.51269 6.96358 5.46389 9.4153 5.46389C9.79725 5.46389 10.1101 5.15162 10.1101 4.76966V3.47744Z"
+                          fill="#4F4F4F"/>
+                </svg>
+                </a>
+
+             </div>
+             <!--<hr style="background-color: #4F4F4F !important; " class=" mx-auto col-1 m-5" >-->
+
+             <div  id="MMMmovemenu" class=" col-12 text-center">
+                <a href="#separ" >
+                    <div style="   min-height:24px;" id="AAAAAarrow-down">
+                        <i style=" color: #4F4F4F" class="fa fa-chevron-up  last"></i>
+                    </div><p style="color: #4F4F4F; font-weight: bold;">BACK TO TOP</p>
+                </a>
+            </div>
+    </footer>
+
+<!--    <a href="{% url 'home' %}" style="color: white">.</a>-->
+<!--</main>-->
+
+<script src="https://code.jquery.com/jquery-3.4.1.js"
+            integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+
+<!--<script src="https://unpkg.com/swup@latest/dist/swup.min.js"></script>-->
+
+<!-- Scrollmagic Core -->
+<script src="{% static 'scrollmagic/scrollmagic/minified/ScrollMagic.min.js' %}"></script>
+
+<!-- Scrollmagic Plugins -->
+<script src="{% static '/scrollmagic/scrollmagic/minified/plugins/animation.gsap.min.js' %}"></script>
+<script src="{% static '/scrollmagic/scrollmagic/minified/plugins/animation.velocity.min.js' %}"></script>
+<script src="{% static '/scrollmagic/scrollmagic/minified/plugins/debug.addIndicators.min.js' %}"></script>
+<script src="{% static '/scrollmagic/scrollmagic/minified/plugins/jquery.ScrollMagic.min.js' %}"></script>
+<script src="{% static '/scrollmagic/assets/js/lib/greensock/TweenMax.min.js' %}"></script>
+<script src="{% static '/scrollmagic/scrollmagic/minified/plugins/animation.gsap.min.js' %}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/plugins/ScrollToPlugin.min.js"></script>
+
+<script>
+
+    // for the navbar
+
+    jQuery.noConflict();
+        (function( $ ) {
+            $(function() {
+                $(function () {
+                    $(document).scroll(function () {
+                    var $nav = $(".navbar-fixed-top");
+                    $nav.toggleClass('scrolled', $(this).scrollTop() > $nav.height());
+                });
+            });
+        });
+    })(jQuery);
+
+
+    // for animating the hamburger menu/collapse button
+
+    jQuery.noConflict();
+    (function( $ ) {
+      $(function() {
+
+            jQuery('.hamburger').on('click', function () {
+              jQuery('.hamburger').toggleClass('is-active');
+            });
+
+            jQuery( '.nav-item a' ).on("click", function(){
+              jQuery('.hamburger').removeClass('is-active');
+            });
+      });
+    })(jQuery);
+
+
+     // trying to reload fancybox as suggested by swup doc https://swup.js.org/getting-started/reloading-javascript
+
+<!--    function init() {-->
+<!--        if (document.querySelector('#fancybox')) {-->
+<!--            (function( $ ) {-->
+<!--              $(function() {-->
+<!--                    $(".fancybox").fancybox();-->
+<!--                      });-->
+<!--            })(jQuery);-->
+<!--        }-->
+<!--    }-->
+
+    // initialize swup for pages transitions
+
+<!--//    const swup = new Swup();-->
+
+    // this event runs for every page view after initial load
+
+<!-- //   swup.on('contentReplaced', init);-->
+
+
+    // Init ScrollMagic
+
+    var ctrl = new ScrollMagic.Controller({
+        globalSceneOptions: {
+            triggerHook: 'onEnter',
+            duration: "600%"
+        }
+    });
+
+    // build scenes for scrollmagic
+
+    new ScrollMagic.Scene({triggerElement: "#parallax1"})
+        .setTween("#parallax1 > div", {y: "85%", ease: Power1.easeOut})
+        //.addIndicators()
+        .addTo(ctrl);
+
+    // reinitializing the scrollmagic function after swup repaints, from https://github.com/swup/swup/issues/108
+    // because swup disables other code outside of repainted
+
+<!--    document.addEventListener('swup:contentReplaced', function () {-->
+<!--        new ScrollMagic.Scene({triggerElement: "#parallax1"})-->
+<!--            .setTween("#parallax1 > div", {y: "85%", ease: Power1.easeOut})-->
+<!--            //.addIndicators()-->
+<!--            .addTo(ctrl);-->
+<!--    });-->
+
+
+    // downslide arrow on index for tweening after page repaint
+
+    jQuery.noConflict();
+    (function( $ ) {
+      $(function() {
+            $(function(){
+
+            var wrapper = $("#movewrapper"),
+                $menu = $("#movemenu"),
+                $window = $(window);
+
+            $menu.on("click","a", function(){
+                var $this = $(this),
+                    href = $this.attr("href"),
+                    topY = $(href).offset().top;
+
+                TweenMax.to($window, 1, {
+                    scrollTo:{
+                        y: topY,
+                        autoKill: true
+                    },
+                    ease:Power3.easeOut
+                 });
+
+              return false;
+            });
+        });
+      });
+    })(jQuery);
+
+
+    // for the downslider to hide at scroll
+
+    jQuery.noConflict();
+    (function( $ ) {
+          $(function() {
+                $(document).ready(function(){
+                  $(window).scroll(function(){
+                    if ($(window).scrollTop() > 100){
+                      $('#movemenu').addClass('scrollhider');
+                    } else {
+                      $('#movemenu').removeClass('scrollhider');
+                    }
+                  });
+                });
+          });
+    })(jQuery);
+
+
+    // reinitialize downslide arrow button for tweening after page repaint
+
+<!--    document.addEventListener('swup:contentReplaced', function () {-->
+
+<!--    jQuery.noConflict();-->
+<!--    (function( $ ) {-->
+<!--          $(function() {-->
+<!--                $(function(){-->
+
+<!--                var wrapper = $("#movewrapper"),-->
+<!--                    $menu = $("#movemenu"),-->
+<!--                    $window = $(window);-->
+
+<!--                $menu.on("click","a", function(){-->
+<!--                    var $this = $(this),-->
+<!--                        href = $this.attr("href"),-->
+<!--                        topY = $(href).offset().top;-->
+
+<!--                    TweenMax.to($window, 1, {-->
+<!--                        scrollTo:{-->
+<!--                            y: topY,-->
+<!--                            autoKill: true-->
+<!--                        },-->
+<!--                        ease:Power3.easeOut-->
+<!--                     });-->
+
+<!--                  return false;-->
+<!--                });-->
+<!--            });-->
+<!--          });-->
+<!--        })(jQuery);-->
+<!--    });-->
+
+
+    // reinitializing top position after page change
+
+<!--    document.addEventListener('swup:contentReplaced', function () {-->
+<!--            window.scrollTo(0, 0);-->
+<!--    });-->
+
+
+    // reinitializing hamburger animations after a link in the menu has been clicked - new page change
+
+<!--    document.addEventListener('swup:contentReplaced', function () {-->
+<!--        jQuery.noConflict();-->
+<!--        (function( $ ) {-->
+<!--          $(function() {-->
+<!--                jQuery('.hamburger').on('click', function () {-->
+<!--                  jQuery('.hamburger').toggleClass('is-active');-->
+<!--                });-->
+
+<!--                jQuery( '.nav-item a' ).on("click", function(){-->
+<!--                  jQuery('.hamburger').removeClass('is-active');-->
+<!--                });-->
+<!--          });-->
+<!--        })(jQuery);-->
+<!--     });-->
+
+
+
+
+
+
+
+</script>
+
+<script src="{% static '/jquery-flipster/dist/jquery.flipster.min.js' %}"></script>
+<script>
+    jQuery.noConflict();
+    (function( $ ) {
+      $(function() {
+        $('.my-flipster').flipster();
+      });
+    })(jQuery);
+</script>
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+
+{% include "fancybox/fancybox_js.html" %} {# Before the closing body tag #}
+</body>
+</html>

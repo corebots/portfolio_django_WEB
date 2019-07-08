@@ -1,0 +1,344 @@
+/* draws baseline grid when body is of class "horizontal-grid"*/
+.horizontal-grid {
+    background-size: 100% 24px;
+    background-image: linear-gradient(to bottom,
+    black 0%,
+    transparent 7%,
+    transparent 100%);
+}
+
+h1 {
+    font-size: 8rem;
+    font-family: Inter;
+    font-weight: light;
+        overflow: hidden;
+    color: white;
+        text-shadow: 0px 2px 35px rgba(0, 0, 0, 0.22);
+
+
+    /* Instead use this non-standard one: */
+    word-break: break-word;
+}
+
+h2 {
+    font-size: 3rem;
+    font-family: Inter;
+    font-weight: 900;
+}
+
+h3 {
+    font-size: 2rem;
+    font-family: Inter;
+    font-weight: bold;
+}
+
+small {
+
+    font-family: Inter;
+
+}
+
+p {
+    font-size: 1rem;
+    font-family: Inter;
+
+}
+
+a {
+    color: black;
+}
+
+a:visited {
+
+}
+
+a:hover {
+    color: black;
+}
+
+.soft-shadow {
+    -webkit-box-shadow: 0px 0px 35px rgba(0, 0, 0, 0.12);
+    -moz-box-shadow: 0px 0px 35px rgba(0, 0, 0, 0.12);
+    /*box-shadow: 0px 2px 10px #000;*/
+    /*box-shadow: 0px 2px 4px #000;*/
+    box-shadow: 0px 0px 35px rgba(0, 0, 0, 0.12);
+    transition: 400ms ease;
+    background: #fff;
+}
+
+.soft-shadow-static {
+    -webkit-box-shadow: 0px 0px 35px rgba(0, 0, 0, 0.12);
+    -moz-box-shadow: 0px 0px 35px rgba(0, 0, 0, 0.12);
+    /*box-shadow: 0px 2px 10px #000;*/
+    /*box-shadow: 0px 2px 4px #000;*/
+    box-shadow: 0px 0px 35px rgba(0, 0, 0, 0.12);
+    transition: 400ms ease;
+    background: #fff;
+}
+
+.soft-shadow:hover {
+    -webkit-box-shadow: 0px 0px 35px rgba(0, 0, 0, 0.12);
+    -moz-box-shadow: 0px 0px 35px rgba(0, 0, 0, 0.12);
+    box-shadow: 0px 0px 45px rgba(0, 0, 0, 0.18);
+    transition: 200ms ease;
+}
+
+.container {
+    margin-bottom: 4rem;
+}
+
+.container-fluid {
+    margin-bottom: 4rem;
+      padding-right: 0px;
+  padding-left: 0px;
+  margin-right: auto;
+  margin-left: auto;
+
+}
+
+.separ {
+    min-height: 4rem;
+}
+
+.btn-default {
+    background-color: black;
+    color: white;
+}
+
+.btn {
+    color: gray;
+}
+
+.btn:hover {
+    color: white;
+}
+
+.btn-default:hover {
+    background-color: white;
+    color: black;
+}
+
+.efekty {
+
+}
+
+.efekty img {
+    transition: 0.5s;
+    margin: 15px;
+    padding: 0px;
+
+}
+
+.efekty img:hover {
+    filter: grayscale(70%);
+    -webkit-box-shadow: 0px 0px 15px lightgrey;
+    -moz-box-shadow: 0px 0px 15px lightgrey;
+    box-shadow: 0px 0px 15px lightgrey;
+    transform: scale(1.05);
+    text-decoration: none;
+}
+
+/*#hovno {*/
+/*    background: url('https://corebots.design/img/rohace/11.jpg') fixed center no-repeat;*/
+/*    background-size: cover;*/
+/*    height: 100vh;*/
+/*}*/
+
+
+.jumbotron {
+
+}
+
+.navbar {
+    font-family: Inter;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+
+
+.navbar-fixed-top.scrolled {
+    background-color: rgba(256, 256, 256, 0.8) !important;
+    transition: background-color 400ms linear;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.05);
+
+}
+
+
+.navbar .navbar-nav > li > a:hover, .navbar .navbar-nav > li > a:focus {
+    color: black !important;
+    text-shadow: 0px 0px 25px white;
+
+}
+
+.navbar .navbar-nav > li > a {
+color: #4F4F4F !important;
+
+}
+
+
+
+
+.icon {
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  background-size: cover;
+  fill: #4F4F4F;
+}
+.navbar-brand:hover > .icon > g.svgroup path {
+  fill: black ;
+    -webkit-filter: drop-shadow(0px 0px 25px white);
+    filter: drop-shadow(0px 0px 25px white);
+
+
+}
+
+
+/**/
+/**/
+/*** for new parallax */
+/**/
+/**/
+
+/* Make the body 100% of the browser viewport height */
+
+html, body {
+    height: 100vh;
+    margin: 0;
+}
+
+
+strong {
+    color: #fff;
+}
+
+/* Make each section 100% of the browser viewport height */
+
+section {
+    height: 100vh;
+    color: black;
+    position: relative;
+    text-align: center;
+
+}
+
+/* Center the content of the sections */
+/*
+section.inner {
+    margin: 0 auto;
+    max-width: 85%;
+}
+
+section#one {
+    background: url('https://corebots.design/img/china/11.jpg');
+    max-width: 100%;
+    transition: all 0.4s linear;
+    z-index: -1;
+}
+
+section#two {
+    background: url('https://corebots.design/img/china/3.jpg');
+    transition: all 0.4s linear;
+    z-index: -1;
+}
+
+section#three {
+    background: url('https://corebots.design/img/china/2.jpg') fixed center no-repeat;
+    transition: all 0.4s linear;
+    z-index: -1;
+
+}
+
+section#four {
+    background-color: #EDF6F9;
+    transition: all 0.4s linear;
+    z-index: -1;
+
+}
+
+section#four.is-active {
+    background-color: #222222;
+}
+*/
+
+/*#*/
+/*# example parallax*/
+/*#*/
+
+.parallaxParent {
+    height: 100vh;
+    overflow: hidden;
+    z-index: -1;
+    top:0 !important;
+}
+
+.parallaxParent > * {
+    height: 200%;
+    position: relative;
+    top: -100%;
+    z-index: -1;
+    background-position: center;
+      background-repeat: no-repeat;
+        -webkit-filter: grayscale(100%); /* Safari 6.0 - 9.0 */
+  filter: ;
+  filter: grayscale(100%)  contrast(1.25);
+
+
+/*  background shift delay*/
+/*  transition: 3s cubic-bezier(0.075, 0.82, 0.165, 1);*/
+}
+
+#parallax1::before {
+    position: fixed;
+    content: '';
+
+}
+
+.scrollmagic-pin-spacer{
+
+}
+
+hr {
+    background-color: black !important;
+    color: black !important;
+    border: solid 0px black !important;
+    height: 5px !important;
+    width: 83% !important;
+}
+
+
+/* navbar effects */
+
+@media (max-width: 991.98px) {
+    .nav-item {
+        font-size: 18px;
+    }
+    .navbar {
+    background-color: rgba(256, 256, 256, 0.8) !important;
+    transition: background-color 400ms linear;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.05);
+    }
+}
+
+@media (max-width: 991.98px) {
+  .container {
+    width: 100%;
+    max-width: none;
+  }
+
+  .last {
+    margin-bottom: 24px !important;
+    }
+}
+
+/* skuska swup na pagetransitions*/
+<script>const swup = new Swup(); </script>
+.transition-fade {
+  transition: 1.4s;
+  opacity: 1;
+}
+
+html.is-animating .transition-fade {
+  opacity: 0;
+}

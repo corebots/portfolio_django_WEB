@@ -1,0 +1,94 @@
+{% extends "photologue/root.html" %}
+{% load i18n %}
+
+{% block title %}
+{% trans "All galleries" %}
+{% endblock %}
+
+{% block content %}
+<main id="swup" class="transition-fade">
+    <section id="parallax1" class="parallaxParent">
+        <div style="background-image: url('https://corebots.design/img/rohace/3.jpg');"></div>
+    </section>
+
+    {% if tag %}
+        <h2> Tagged as: {{ tag }}</h2>
+    {% endif %}
+
+
+
+
+
+    <h1>Title: {{ gal }}</h1>
+<ul>
+
+    <li>Tags:
+        {% for tag in gal.tags.all %}
+            <a href="{% url "tagged_galleries:tagged" tag.slug %}">{{ tag }}</a>,
+        {% endfor %}
+    </li>
+
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    {% for gallery in GalleryExtended.objects.all %}
+        <small style="font-weight: 800">aaaa{{ gallery.title }}</small>
+    {% endfor %}
+
+    <div class="container no-gutters">
+        <div class="col-12">
+            {% for photo in gallery.sample %}
+
+
+            <a href="{{ gallery.get_absolute_url }}">
+                <img src="{{ photo.get_thumbnail_url }}"
+                     class="thumbnail col-12 col-sm-12 col-md-5 p-1"
+                     alt="{{ photo.title }}" style="margin-bottom:4px;">
+            </a>
+
+            {% endfor %}
+        </div>
+    </div>
+
+
+
+
+
+
+    <ul>
+        {% for book in books %}
+        <li>
+            <h3>
+                <a href="{% url " library_books:book_page" book.id %}">{{ book.title }}</a>
+            </h3>
+            <p><strong>Author:</strong> {{ book.author }} </p>
+        </li>
+        {% endfor %}
+    </ul>
+
+
+
+
+
+
+
+
+
+
+    <a href="{% url 'home' %}">go</a>
+</main>
+{% endblock %}

@@ -1,0 +1,103 @@
+{% extends "photologue/root.html" %}
+{% load i18n %}
+{% load static %}
+
+{% block title %}
+{% trans "Design" %}
+{% endblock %}
+
+<!-- content of this template to be forwarded to base -->
+{% block content %}
+
+
+<!-- top parallax image -->
+<section id="parallax1" class="parallaxParent">
+    <div style="background-image: url('https://corebots.s3-us-west-2.amazonaws.com/media/photologue/photos/header_3xb.jpg');"></div>
+</section>
+
+<!-- main page area -->
+<div class="container-fluid px-0 px-md-2" style="margin-top: -30rem;">
+
+    <!-- page title  -->
+    <div class="container ">
+        <div class="row col-lg-12 justify-content-center mx-auto text-center p-0">
+       <span class=" col " style="background-color:black;"> <h1 style="display:block; " class="page-header py-1 py-lg-5 px-1">{% trans "web: Printerest" %}</h1></span>
+    </div>
+    </div>
+    <!-- page content -->
+    <div class="container">
+
+        <!-- shadowy container -->
+        <div class="soft-shadow row py-5  justify-content-center align-items-center mx-auto text-center">
+
+            <!-- spacer -->
+            <div class="py-md-3 py-lg-4"></div>
+
+            <!-- section title -->
+            <div class="container px-2 px-md-4 px-lg-5 px-lg-5 mx-2 mx-md-5 mx-lg-5 py-1">
+                <hr>
+                <div class="row justify-content-between align-items-end p-0 m-0">
+                    <div class="align-bottom col">
+                        <h2>A website concept</h2>
+                    </div>
+                </div>
+                <hr>
+
+                <!-- body paragraph -->
+                <p class="col-12 col-lg-10 p-4 p-lg-5 mx-md-0 mx-lg-auto text-sm-left text-lg-center">Testing Figma for basic website design here, created from scratch following common layout principles. Figma's nested components and constraints system prove to be very useful for these.</p>
+
+
+                <!-- fancybox gallery -->
+                {% if galleries %}
+                <!-- cycle galleries -->
+                {% for gallery in galleries %}
+                <!-- filter photologue galleries and only display the ones tagged with 'Design'-->
+                {% if gallery.title == 'printerest_web' %}
+
+                <div class="container no-gutters">
+                    <div class="col-12 efekty_gal_list">
+
+                        {% for photo in gallery.public %}
+
+                        <a data-fancybox="images" id="fancybox" class="fancybox" href="{{ photo.image.url }}">
+                            <img src="{{ photo.image.url }}"
+                                 class="thumbnail col-12 col-sm-10 col-md-10 mx-0 my-0 mx-md-1 px-md-0 my-md-4 "
+                                 alt="{{ photo.title }}">
+                        </a>
+
+                        {% endfor %}
+
+                        <div style="min-height: 3rem;">
+                        </div>
+                    </div>
+                </div>
+
+                {% endif %}
+
+                {% endfor %}
+
+                {% else %}
+
+                <div class="row col-lg-12">{% trans "No galleries were found" %}.</div>
+
+                {% endif %}
+
+                <!-- spacer -->
+                <div id="separ">
+                    <br><br><br><br>
+                </div>
+
+            </div>
+            </div>
+
+        </div>
+
+        <!-- spacer -->
+        <div id="separ">
+            <br><br><br><br>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

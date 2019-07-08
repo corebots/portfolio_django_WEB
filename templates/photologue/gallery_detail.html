@@ -1,0 +1,80 @@
+{% extends "photologue/root.html" %}
+
+{% load i18n %}
+
+{% block title %}
+
+{{ gallery.title }}
+
+{% endblock %}
+
+{% block content %}
+
+    {# parallax header image #}
+
+    <section id="parallax1" class="parallaxParent">
+
+        {# loop to pick header image from current gallery, copied from below loop #}
+
+        {% for photo in gallery.public %}
+
+            <div style="background-image: url({{ photo.image.url }});"></div>
+
+        {% endfor %}
+
+    </section>
+
+    <div class="container px-0 px-md-3 px-lg-5 " style="margin-top: -40%;">
+        <div class="row col-lg-12 justify-content-center mx-auto text-center">
+
+            <h1 class="page-header p-2 p-lg-5">{{ gallery.title }}</h1>
+
+        </div>
+        <div class="soft-shadow-static">
+            <div class="container-fluid">
+
+                {% if gallery.description %}
+
+                    <br><br>
+
+                    <p class="col-9 p-1 py-lg-5 mx-auto text-center">{{ gallery.description|safe }}</p>
+
+                {% endif %}
+
+            </div>
+            <div class=" container-fluid ">
+                <div class="efekty col-12 justify-content-center mx-auto text-center ">
+
+                    {% for photo in gallery.public %}
+
+                        <a data-fancybox="images" id="fancybox" class="fancybox" href="{{ photo.image.url }}" >
+                            <img src="{{ photo.get_thumbnail_url }}" class="thumbnail col-12 col-sm-5 col-md-3 mx-0 my-0 mx-md-1 px-md-0  my-md-2 "
+                                 alt="{{ photo.title }}">
+                        </a>
+
+                    {% endfor %}
+
+                </div>
+            </div>
+
+            <!-- spacer -->
+            <div class="py-md-3 py-lg-4"></div>
+
+
+            <p class="muted col-10 p-1 mx-auto text-center">
+
+                <small>{% trans "Published" %} {{ gallery.date_added }}</small>
+
+            </p>
+
+        </div>
+    </div>
+
+    <div class="text-center py-lg-5"><a href="{% url 'photologue:gallery-list' %}"
+                                class="btn btn-default">{% trans "View all galleries" %}</a>
+    </div>
+    <br>
+    <br>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,209 @@
+{% extends "photologue/root.html" %}
+{% load i18n %}
+{% load static %}
+
+{% block title %}
+{% trans "Design" %}
+{% endblock %}
+
+{% block content %}
+
+    <section id="parallax1" class="parallaxParent">
+        <div style="background-image: url({% static 'img/amaniso.jpg' %});"></div>
+    </section>
+
+    <div class="container-fluid px-0 px-md-2" style="margin-top: -30rem;">
+        <div class="row col-lg-12 justify-content-center mx-auto text-center">
+            <h1 class="page-header py-1 py-lg-5 px-5">{% trans "Design" %}</h1>
+        </div>
+
+        <!-- if there are any galleries in photologue -->
+        {% if galleries %}
+        <!-- cycle galleries -->
+        {% for gallery in galleries %}
+        <!-- in each gallery cycle tags-->
+        {% for tag in gallery.extended.tags.all %}
+        <!-- filter photologue galleries and only display the ones tagged with 'Design'-->
+        {% if tag.name == 'design' %}
+
+            <div class="container">
+                <div class="soft-shadow row py-5  justify-content-center align-items-center mx-auto text-center">
+                    <div class="py-md-3 py-lg-4"></div>
+                    <div class="container px-2 px-md-4 px-lg-5 px-lg-5 mx-2 mx-md-5 mx-lg-5 py-1">
+                        <hr>
+
+                        <div class="row justify-content-between align-items-end p-0 m-0">
+
+                            <!--display tags as per https://stackoverflow.com/questions/27584840/how-to-display-extended-fields-in-django-photologue-->
+                            <!-- .extended to access extended field in admin as declared in related_name=-->
+
+                            <div class="col-12 col-lg-3 text-center text-lg-left px-lg-0" style="min-width: 150px;"><small>tags: </small>
+
+                                {% for tag in gallery.extended.tags.all %}
+                                    {% if tag.name != 'design' %}
+                                    <small style="font-weight: 800">{{ tag.name }}</small>
+                                    {% endif %}
+                                {% endfor %}
+
+                            </div>
+                            <div class="align-bottom col" >
+
+                                {% if gallery.title == 'AMANITA brand identity' %}
+
+                                    <h2 ><a class="align-bottom col-12 col-lg-3 " href="{% url 'amanita_brand' %}">{{ gallery.title }}</a></h2>
+
+                                {% elif gallery.title == 'AMANITA app' %}
+
+                                    <h2 ><a class="align-bottom col-12 col-lg-3 " href="{% url 'amanita_app' %}">{{ gallery.title }}</a></h2>
+
+                                {% elif gallery.title == 'Posters' %}
+
+                                    <h2 ><a class="align-bottom col-12 col-lg-3 " href="{% url 'posters' %}">{{ gallery.title }}</a></h2>
+
+                                {% elif gallery.title == 'web: Printerest' %}
+
+                                    <h2 ><a class="align-bottom col-12 col-lg-3 " href="{% url 'printerest_web' %}">{{ gallery.title }}</a></h2>
+
+                                {% elif gallery.title == 'TLS: flyers & posts' %}
+
+                                    <h2 ><a class="align-bottom col-12 col-lg-3 " href="{% url 'tls_flyers_posts' %}">{{ gallery.title }}</a></h2>
+
+                                {% elif gallery.title == 'TLS: 3d & video' %}
+
+                                    <h2 ><a class="align-bottom col-12 col-lg-3 " href="{% url 'tls_3d_video' %}">{{ gallery.title }}</a></h2>
+
+                                {% elif gallery.title == 'TLS - Boca Systems C.I. and docs.' %}
+
+                                    <h2 ><a class="align-bottom col-12 col-lg-3 " href="{% url 'tls_ci' %}">{{ gallery.title }}</a></h2>
+
+                                {% elif gallery.title == 'T-shirts' %}
+
+                                    <h2 ><a class="align-bottom col-12 col-lg-3 " href="{% url 't_shirts' %}">{{ gallery.title }}</a></h2>
+
+                                {% else %}
+
+                                    <h2 ><a class="align-bottom col-12 col-lg-3 " href="{{ gallery.get_absolute_url }}">{{ gallery.title }}</a></h2>
+
+                                {% endif %}
+
+
+                            </div>
+                            <div class="muted col-12 col-lg-3 text-sm-center text-lg-right justify-content-sm-center justify-content-lg-center px-lg-0" style="min-width: 150px;">
+
+                                <small class=" ">{% trans "" %} {{ gallery.date_added }}</small>
+
+                            </div>
+                        </div>
+                        <hr>
+
+                        {% if gallery.description %}
+
+                        <p class="col-12 col-lg-10 p-4 p-lg-5 mx-md-0 mx-lg-auto text-sm-center text-lg-center justify-content-sm-center justify-content-lg-center">{{ gallery.description|safe }}</p>
+
+                        {% endif %}
+
+
+                    </div>
+                    <div class="container no-gutters">
+                        <div class="col-12 efekty_gal_list">
+
+                            {% for photo in gallery.sample %}
+
+                            {% if gallery.title == 'AMANITA brand identity' %}
+
+                            <a href="{% url 'amanita_brand' %}">
+                                <img src="{{ photo.image.url }}"
+                                     class="thumbnail col-12 col-sm-12 col-md-10 p-0 m-0"
+                                     alt="{{ photo.title }}" style="margin-bottom:4px;">
+                            </a>
+
+                            {% elif gallery.title == 'AMANITA app' %}
+
+                            <a href="{% url 'amanita_app' %}">
+                                <img src="{{ photo.image.url }}"
+                                     class="thumbnail col-12 col-sm-12 col-md-10 p-1 "
+                                     alt="{{ photo.title }}" style="margin-bottom:4px;">
+                            </a>
+
+                            {% elif gallery.title == 'Posters' %}
+
+                            <a href="{% url 'posters' %}">
+                                <img src="{{ photo.image.url }}"
+                                     class="thumbnail col-12 col-sm-12 col-md-5 p-3 "
+                                     alt="{{ photo.title }}" style="margin-bottom:4px;">
+                            </a>
+
+                            {% elif gallery.title == 'web: Printerest' %}
+
+                            <a href="{% url 'printerest_web' %}">
+                                <img src="{{ photo.image.url }}"
+                                     class="thumbnail col-12 col-sm-12 col-md-10 p-1 "
+                                     alt="{{ photo.title }}" style="margin-bottom:4px;">
+                            </a>
+
+                            {% elif gallery.title == 'TLS: flyers & posts' %}
+
+                            <a href="{% url 'tls_flyers_posts' %}">
+                                <img src="{{ photo.image.url }}"
+                                     class="thumbnail col-12 col-sm-12 col-md-5 p-1 "
+                                     alt="{{ photo.title }}" style="margin-bottom:4px;">
+                            </a>
+
+                            {% elif gallery.title == 'TLS: 3d & video' %}
+
+                            <a href="{% url 'tls_3d_video' %}">
+                                <img src="{{ photo.get_thumbnail_url }}"
+                                     class="thumbnail col-12 col-sm-12 col-md-5 p-1 "
+                                     alt="{{ photo.title }}" style="margin-bottom:4px;">
+                            </a>
+
+                            {% elif gallery.title == 'TLS - Boca Systems C.I. and docs.' %}
+
+                            <a href="{% url 'tls_ci' %}">
+                                <img src="{{ photo.image.url }}"
+                                     class="thumbnail col-12 col-sm-12 col-md-5 p-1 "
+                                     alt="{{ photo.title }}" style="margin-bottom:4px;">
+                            </a>
+
+                            {% elif gallery.title == 'T-shirts' %}
+
+                            <a href="{% url 't_shirts' %}">
+                                <img src="{{ photo.get_thumbnail_url }}"
+                                     class="thumbnail col-12 col-sm-12 col-md-5 p-1 "
+                                     alt="{{ photo.title }}" style="margin-bottom:4px;">
+                            </a>
+
+                            {% else %}
+
+                            <a href="{{ gallery.get_absolute_url }}">
+                                <img src="{{ photo.get_thumbnail_url }}"
+                                     class="thumbnail col-12 col-sm-12 col-md-5 p-1"
+                                     alt="{{ photo.title }}" style="margin-bottom:4px;">
+                            </a>
+
+                            {% endif %}
+
+                            {% endfor %}
+
+                            <div style="min-height: 3rem;">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div id="separ">
+                <br><br><br><br>
+            </div>
+        {% endif %}
+        {% endfor %}
+        {% endfor %}
+        {% else %}
+        <div class="row col-lg-12">{% trans "No galleries were found" %}.</div>
+        {% endif %}
+        {% include "photologue/includes/paginator.html" %}
+    </div>
+
+
+{% endblock %}

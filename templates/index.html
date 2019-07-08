@@ -1,0 +1,148 @@
+{% extends "base.html" %}
+
+{% load i18n %}
+{% load static %}
+
+
+
+{% block title %}
+
+{{ gallery.title }}
+
+{% endblock %}
+
+
+
+{% block content %}
+<!--<div class="header-container">-->
+<!--    <div class="video-container">-->
+<!--        <video preload="true" autoplay="autoplay" loop="loop" volume="0" poster="{% static 'img/poster.jpg' %}">-->
+<!--           Photo <source src="{% static 'video/bg.mp4' %}" type="video/mp4">-->
+<!--            <source src="{% static 'video/bg.webm' %}" type="video/webm">-->
+<!--            <source src="{% static 'video/bg.ogv' %}" type="video/ogg">-->
+<!--        </video>-->
+<!--    </div>-->
+<!--</div>-->
+<div style="overflow: hidden !important; z-index: -10;" class="wrapper container-fluid ">
+
+
+<!-- cover VIDEO -->
+    <video style=" height:100vh !important;" class=" " src="{% static 'video/bg.mp4' %}"
+           type="video/mp4" autoplay loop muted></video>
+    <!--          <video style=" height:100vh !important; " class=" " src="{% static 'video/bg.wemb' %}" type="video/webm" autoplay loop></video>-->
+    <!--          <video style="height:100vh !important; " class=" " src="{% static 'video/bg.ogv' %}" type="video/ogg" autoplay loop></video>-->
+
+
+</div>
+<div style="margin-top: -8rem; margin-bottom: 9rem;" id="movemenu" class="text-center">
+    <a href="#separ" >
+        <div style=" padding-top:88px; padding-bottom: 96px; min-height:48px;" id="arrow-down">
+            <i style="  position: absolute; color: #4F4F4F" class="fa fa-chevron-down fa-2x last"></i>
+        </div>
+    </a>
+</div>
+
+<!--<video autoplay muted loop id="myVideo">-->
+<!--  <source src="{% static 'video/bg.mp4' %}" type="video/mp4">-->
+<!--</video>-->
+
+<!--<div style="margin-top: 3rem; margin-bottom: 4vh;" class="container text-center ">-->
+
+<!--    <h1 style="color: #525252; font-weight: 500;">Welcome</h1>-->
+
+<!--</div>-->
+
+
+
+        {% if galleries %}
+        {% for gallery in galleries %}
+
+        {% for tag in gallery.extended.tags.all %}
+        {% if tag.name == 'design_amanita_home' %}
+
+        <div class="container">
+            <div class=" row py-5 justify-content-center align-items-center mx-auto text-center">
+
+                <div class="container">
+                    <hr>
+                    <h2>Latest: {{ gallery.title }} design</h2>
+
+                    {% if gallery.description %}
+                    <hr>
+                    <p style="margin-top: 4rem;" class="col-10 p-1  mx-auto text-center">{{ gallery.description|safe }}</p>
+
+                    {% endif %}
+
+                    <div style="min-height: 3rem;"></div>
+
+                </div>
+                <div class="container ">
+                    <div class="row justify-content-center align-items-center mx-auto text-center" >
+
+
+                        <div class="container my-flipster">
+                            <ul>
+
+                            {% for photo in gallery.public %}
+
+                                <li><img src="{{ photo.get_mobile_url }}" alt="{{ photo.title }}"></li>
+
+                            {% endfor %}
+
+                          </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+   <div class="text-center"><a href="{% url 'amanita_app' %}"
+                                class="btn btn-default">{% trans "View gallery" %}</a>
+    </div>
+        <div id="separ">
+            <br><br><br><br>
+        </div>
+
+
+        {% endif %}
+
+
+
+        {% endfor %}
+        {% endfor %}
+        {% else %}
+        <div class="row col-lg-12">{% trans "No galleries were found" %}.</div>
+        {% endif %}
+        {% include "photologue/includes/paginator.html" %}
+    </div>
+
+
+
+<!--<div class="container my-flipster">-->
+<!--  <ul>-->
+<!--    <li><img style="max-width:300px;" src="https://corebots.design/img/design_amanita/20.png" /></li>-->
+
+<!--    <li><img style="max-width:300px;" src="https://corebots.design/img/design_amanita/2.png" /></li>-->
+
+<!--    <li><img style="max-width:300px;" src="https://corebots.design/img/design_amanita/28.png" /></li>-->
+
+<!--    <li><img style="max-width:300px;" src="https://corebots.design/img/design_amanita/4.png" /></li>-->
+
+<!--     <li><img style="max-width:300px;" src="https://corebots.design/img/design_amanita/28.png" /></li>-->
+
+<!--    <li><img style="max-width:300px;" src="https://corebots.design/img/design_amanita/4.png" /></li>-->
+
+<!--    <li><img style="max-width:300px;" src="https://corebots.design/img/design_amanita/23.png" /></li>-->
+
+
+<!--  </ul>-->
+<!--</div>-->
+
+
+
+
+
+
+
+{% include "photologue/includes/paginator.html" %}
+
+{% endblock %}

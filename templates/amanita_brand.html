@@ -1,0 +1,178 @@
+{% extends "photologue/root.html" %}
+{% load i18n %}
+{% load static %}
+
+{% block title %}
+{% trans "Design" %}
+{% endblock %}
+
+<!-- content of this template to be forwarded to base -->
+{% block content %}
+
+
+<!-- top parallax image -->
+<section id="parallax1" class="parallaxParent">
+    <div style="background-image: url('https://corebots.s3-us-west-2.amazonaws.com/media/photologue/photos/sveter2.resized.jpg');"></div>
+</section>
+
+<!-- main page area -->
+<div class="container-fluid px-0 px-md-2" style="margin-top: -30rem;">
+
+    <!-- page title  -->
+    <div class="container ">
+        <div class="row col-lg-12 justify-content-center mx-auto text-center p-0">
+       <span class=" col " style="background-color:black;"> <h1 style="display:block; " class="page-header py-1 py-lg-5 px-1">{% trans "AMANITA" %}</h1></span>
+    </div>
+    </div>
+
+    <!-- page content -->
+    <div class="container">
+
+        <!-- shadowy container -->
+        <div class="soft-shadow row py-5  justify-content-center align-items-center mx-auto text-center">
+
+            <!-- spacer -->
+            <div class="py-md-3 py-lg-4"></div>
+
+            <!-- section title -->
+            <div class="container px-2 px-md-4 px-lg-5 px-lg-5 mx-2 mx-md-5 mx-lg-5 py-1">
+                <hr>
+                <div class="row justify-content-between align-items-end p-0 m-0">
+                    <div class="align-bottom col">
+                        <h2>Not a company. "Just" a real brand.</h2>
+                    </div>
+                </div>
+                <hr>
+
+                <!-- ody paragraph -->
+                <p class="col-12 col-lg-10 p-4 p-lg-5 mx-md-0 mx-lg-auto text-sm-left text-lg-center">AMANITA exists since 2014,
+                    led by young, crafty A. Kosca. She makes beautiful handmade cloths and accessories. With an
+                    inspiring choice of materials her products stand out in the crowd and are perceived as 'real'. No
+                    serial machinery is involved in production, she does everything by hand in her small workshop on the
+                    3rd floor of a regular apartment building. Supported by her boyfriend, daughter and pets Huxley and
+                    Toby.</p>
+
+                <!-- fancybox gallery -->
+                {% if galleries %}
+                <!-- cycle galleries -->
+                {% for gallery in galleries %}
+                <!-- filter photologue galleries and only display the ones tagged with 'Design'-->
+                {% if gallery.title == 'amanita_brand_models' %}
+
+                <div class="container no-gutters">
+                    <div class="col-12 efekty_gal_list">
+
+                        {% for photo in gallery.public %}
+
+                        <a data-fancybox="images" id="fancybox" class="fancybox" href="{{ photo.image.url }}">
+                            <img src="{{ photo.get_square_url }}"
+                                 class="thumbnail col-12 col-sm-3 col-md-3 mx-0 my-0 mx-md-1 px-md-0  my-md-2 "
+                                 alt="{{ photo.title }}">
+                        </a>
+
+                        {% endfor %}
+
+                        <div style="min-height: 3rem;">
+                        </div>
+                    </div>
+                </div>
+
+                {% endif %}
+
+                {% endfor %}
+
+                {% else %}
+
+                <div class="row col-lg-12">{% trans "No galleries were found" %}.</div>
+
+                {% endif %}
+
+                <!-- body paragraph -->
+                <p class="col-12 col-lg-10 p-4 p-lg-5 mx-md-0 mx-lg-auto text-sm-left text-lg-center">Definition of brand name:
+                    AMANITA - Any of very many agaric mushrooms, of the genus Amanita, most of which are very poisonous
+                    (wikipedia).</p>
+
+                    <!-- body image -->
+                    <img class="col-10 p-0 m-0"
+                         src="https://corebots.s3-us-west-2.amazonaws.com/media/photologue/photos/design_amanita_brand_9.jpg">
+
+                    <!-- body image -->
+                    <img class="col-5 px-1 py-3 m-0"
+                         src="https://corebots.s3-us-west-2.amazonaws.com/media/photologue/photos/design_amanita_brand_11.jpg">
+
+                    <!-- body image -->
+                    <img class="col-5 px-1 py-3 m-0"
+                         src="https://corebots.s3-us-west-2.amazonaws.com/media/photologue/photos/design_amanita_brand_12.jpg">
+
+                    <!-- body image -->
+                    <img class="col-10 p-0 m-0"
+                         src="https://corebots.s3-us-west-2.amazonaws.com/media/photologue/photos/design_amanita_brand_10.jpg">
+
+            </div>
+
+            <!-- spacer -->
+            <div class="py-md-3 py-lg-4"></div>
+
+            <!-- body image -->
+            <img class="col-10"
+                 src="https://corebots.s3-us-west-2.amazonaws.com/media/photologue/photos/design_amanita_brand_1.jpg">
+
+            <!-- body paragraph -->
+            <p class="col-12 col-lg-10 p-4 p-lg-5 mx-md-0 mx-lg-auto text-sm-left text-lg-center">Wrinkles, a tiny skirt together with a bite off are core elements of the playful mushroom logo.</p>
+
+            <!-- body image -->
+            <img class="col-10"
+                 src="https://corebots.s3-us-west-2.amazonaws.com/media/photologue/photos/design_amanita_brand_13.jpg">
+               <div class="col-10"> <hr></div>
+            <!-- body image -->
+            <img class="col-10"
+                 src="https://corebots.s3-us-west-2.amazonaws.com/media/photologue/photos/design_amanita_brand_15.jpg">
+               <div class="col-10 "> <hr></div>
+            <!-- body image -->
+            <img class="col-10"
+                 src="https://corebots.s3-us-west-2.amazonaws.com/media/photologue/photos/design_amanita_brand_14.jpg">
+
+            <!-- section title -->
+            <div class="container px-2 px-md-4 px-lg-5 px-lg-5 mx-2 mx-md-5 mx-lg-5 py-1">
+                <hr>
+                <div class="row justify-content-between align-items-end p-0 m-0">
+                    <div class="align-bottom col">
+                        <h2>Business cards</h2>
+                    </div>
+                </div>
+                <hr>
+
+            <!-- body paragraph -->
+            <p class="col-12 col-lg-10 p-4 p-lg-5 mx-md-0 mx-lg-auto text-sm-left text-lg-center">Fonts:<br>Logo: Zap Raygun v2.0, with ammended spacing and stoke width; Rear: Loto<br>Main color:<br>​Strong red / CMYK 0, 98, 100, 24 / #C10300</p>
+
+                <!-- body image -->
+                <img class="col-10 py-2"
+                     src="https://corebots.s3-us-west-2.amazonaws.com/media/photologue/photos/design_amanita_brand_17.png">
+
+                <!-- body image -->
+                <img class="col-10 py-2"
+                     src="https://corebots.s3-us-west-2.amazonaws.com/media/photologue/photos/design_amanita_brand_16.jpg">
+
+                <!-- body image -->
+                <img class="col-10 py-2"
+                     src="https://corebots.s3-us-west-2.amazonaws.com/media/photologue/photos/design_amanita_brand_18.jpg">
+
+                <!-- spacer -->
+                <div id="separ">
+                    <br><br><br><br>
+                </div>
+
+            </div>
+            </div>
+
+        </div>
+
+        <!-- spacer -->
+        <div id="separ">
+            <br><br><br><br>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

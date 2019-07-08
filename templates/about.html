@@ -1,0 +1,228 @@
+{% extends "photologue/root.html" %}
+{% load i18n %}
+{% load static %}
+
+{% block title %}
+{% trans "About" %}
+{% endblock %}
+
+{% block content %}
+
+
+<!--    {# for previous parallax #}-->
+
+<!--    {#<div id="parallax1" class="parallaxParent">#}-->
+<!--    {#<div style="background-image: url('https://corebots.design/img/rohace/10.jpg');"><h2>asdfasaser</h2></div>#}-->
+<!--    {#</div>#}-->
+
+
+
+    <section id="parallax1" class="parallaxParent">
+        <div style="background-image: url({% static 'img/me-header.jpg'%})"></div>
+    </section>
+
+    <div class="container px-0 px-md-2" style="margin-top: -30rem;">
+        <div class="row col-lg-12 justify-content-center mx-auto text-center">
+            <h1 class="page-header py-1 py-lg-5 px-5">{% trans "About" %}</h1>
+        </div>
+
+<div class="soft-shadow row col-12 col-md-10 col-lg-10 p-5 text-center  mx-auto">
+        <p>Only purpose of this website is to display some of my work. In case you want to know more, ​check
+            out the info below, download my <a style="font-weight: bold;" href="#">CV</a> or fill out the <a style="font-weight: bold;" href="{% url 'contact' %}">contact form</a>. You can also <a style="font-weight: bold;" href="mailto:hello@corebots.design">email me</a>.
+
+        </p>
+        <p>
+            <small style="color:gray">
+                DISCLAIMER:
+
+                All photographs and designs on this website are made by me with the exception of the 'about me' picture
+                below and the model photographs for the AMANITA brand. All TLS related photographs, documents and designs
+                were created by me during my employment at TLS - Boca Systems and thus all rights for these are owned by
+                TLS - Boca Systems.
+            </small>
+        </p>
+    </div>
+
+        <div id="separ">
+            <br><br><br><br>
+        </div>
+
+        {% if galleries %}
+        {% for gallery in galleries %}
+
+        {% for tag in gallery.extended.tags.all %}
+        {% if tag.name == 'icons_os' %}
+
+        <div class="container">
+            <div class=" row py-5 justify-content-center align-items-center mx-auto text-center">
+
+                <div class="container">
+                    <hr>
+                    <h2>{{ gallery.title }}</h2>
+
+                    {% if gallery.description %}
+                    <hr>
+                    <p style="margin-top: 4rem;" class="col-10 p-1 mx-auto text-center">{{ gallery.description|safe }}</p>
+                    <p class="col-10 p-1 mx-auto text-center">{{ gallery.GalleryExtended.tags.all }}</p>
+                    {% endif %}
+                </div>
+                <div class="container ">
+                    <div class="row justify-content-center align-items-center mx-auto text-center" >
+
+                        {% for photo in gallery.sample %}
+
+                            <div class=" col col-md-2 p-0 m-2">
+                                <img src="{{ photo.get_icon_url }}"
+                                     class="thumbnail "
+                                     alt="{{ photo.title }}" style="margin-bottom:0px;">
+                                <div style="color:gray"> <small>{{ photo.title }}</small> </div>
+                            </div>
+
+                        {% endfor %}
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="separ">
+            <br><br><br><br>
+        </div>
+
+
+        {% endif %}
+
+        {% if tag.name == 'icons_sw' %}
+
+        <div class="container">
+            <div class=" row py-5 justify-content-center align-items-center mx-auto text-center">
+
+                <div class="container">
+                    <hr>
+                    <h2>{{ gallery.title }}</h2>
+
+                    {% if gallery.description %}
+                    <hr>
+                    <p style="margin-top: 4rem;" class="col-10 p-1 mx-auto text-center">{{ gallery.description|safe }}</p>
+                    <p class="col-10 p-1 mx-auto text-center">{{ gallery.GalleryExtended.tags.all }}</p>
+                    {% endif %}
+                </div>
+                <div class="container ">
+                    <div class="row justify-content-center align-items-center mx-auto text-center" >
+
+                        {% for photo in gallery.public %}
+
+                            <div class=" col col-md-2 p-0 m-2">
+                                <img src="{{ photo.get_icon_url }}"
+                                     class="thumbnail "
+                                     alt="{{ photo.title }}" style="margin-bottom:0px;">
+                                <div style="color:gray"> <small>{{ photo.title }}</small> </div>
+                            </div>
+
+                        {% endfor %}
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="separ">
+            <br><br><br><br>
+        </div>
+
+
+        {% endif %}
+
+        {% if tag.name == 'icons_code' %}
+
+        <div class="container">
+            <div class=" row py-5 justify-content-center align-items-center mx-auto text-center">
+
+                <div class="container">
+                    <hr>
+                    <h2>{{ gallery.title }}</h2>
+
+                    {% if gallery.description %}
+                    <hr>
+                    <p style="margin-top: 4rem;" class="col-10 p-1 mx-auto text-center">{{ gallery.description|safe }}</p>
+                    <p class="col-10 p-1 mx-auto text-center">{{ gallery.GalleryExtended.tags.all }}</p>
+                    {% endif %}
+                </div>
+                <div class="container ">
+                    <div class="row justify-content-center align-items-center mx-auto text-center" >
+
+                        {% for photo in gallery.public %}
+
+                            <div class=" col col-md-2 p-0 m-2">
+                                <img src="{{ photo.get_icon_url }}"
+                                     class="thumbnail "
+                                     alt="{{ photo.title }}" style="margin-bottom:0px;">
+                                <div style="color:gray"> <small>{{ photo.title }}</small> </div>
+                            </div>
+
+                        {% endfor %}
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="separ">
+            <br><br><br><br>
+        </div>
+        {% endif %}
+
+<!--        about me  -->
+ {% if tag.name == 'aboutme' %}
+
+        <div class="container">
+            <div class=" row py-5 justify-content-center align-items-center mx-auto text-center">
+
+                <div class="container">
+                    <hr>
+                    <h2><a href="{{ gallery.get_absolute_url }}">{{ gallery.title }}</a></h2>
+
+
+                    <hr>
+
+
+
+                </div>
+                <div class="container " style="margin-top: 8rem;">
+                    <div class="row justify-content-center align-items-top mx-auto text-center" >
+
+                        {% for photo in gallery.public %}
+
+                            <div class=" col col-7 col-md-5 py-5 py-md-1 px-5 m-0 justify-content-right ">
+                                <img style="max-height: 285px; max-width: 285px;" src="{{ photo.get_square_url }}"
+                                     class="rounded-circle col-12"
+                                     alt="{{ photo.title }}" style="">
+
+                            </div>
+                            <div class="col-10 col-md-6 col-lg-5 text-center text-md-left"> {{ photo.caption }}<br><br><a style="font-weight: bold;" href="#"><i class="fa fa-download" aria-hidden="true"></i>  CURRICULUM VITAE</a></div>
+
+
+                        {% endfor %}
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="separ">
+            <br><br><br><br>
+        </div>
+
+
+
+        {% endif %}
+
+        {% endfor %}
+        {% endfor %}
+        {% else %}
+        <div class="row col-lg-12">{% trans "No galleries were found" %}.</div>
+        {% endif %}
+        {% include "photologue/includes/paginator.html" %}
+    </div>
+
+{% endblock %}

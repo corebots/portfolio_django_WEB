@@ -1,0 +1,309 @@
+{% extends "photologue/root.html" %}
+{% load i18n %}
+{% load static %}
+
+{% block title %}
+{% trans "Design" %}
+{% endblock %}
+
+<!-- content of this template to be forwarded to base -->
+{% block content %}
+
+<!-- top parallax image -->
+<section id="parallax1" class="parallaxParent">
+    <div style="background-image: url('https://corebots.s3-us-west-2.amazonaws.com/media/photologue/photos/design_tls_3d4.gif');"></div>
+</section>
+
+<!-- main page area -->
+<div class="container-fluid px-0 px-md-2" style="margin-top: -30rem;">
+
+    <!-- page title  -->
+    <div class="container ">
+        <div class="row col-lg-12 justify-content-center mx-auto text-center p-0">
+       <span class=" col " style="background-color:black;"> <h1 style="display:block; " class="page-header py-1 py-lg-5 px-1">{% trans "3D" %}</h1></span>
+    </div>
+    </div>
+
+    <!-- page content -->
+    <div class="container">
+
+        <!-- shadowy container -->
+        <div class="soft-shadow row py-5  justify-content-center align-items-center mx-auto text-center">
+
+            <!-- spacer -->
+            <div class="py-md-3 py-lg-4"></div>
+
+            <!-- section title -->
+            <div class="container px-2 px-md-4 px-lg-5 px-lg-5 mx-2 mx-md-5 mx-lg-5 py-1">
+                <hr>
+                <div class="row justify-content-between align-items-end p-0 m-0">
+                    <div class="align-bottom col">
+                        <h2>New printer cabinet</h2>
+                    </div>
+                </div>
+                <hr>
+
+                <!-- body paragraph -->
+                <p class="col-12 col-lg-10 p-4 p-lg-5 mx-md-0 mx-lg-auto text-sm-left text-lg-center">White cabinet design for
+                    BOCA Lemur-C. Incl. feature placement - cooling holes, operating buttons, description texts and
+                    logo. Final version was used for mold production in China to deliver a batch of white cabinets for
+                    this small printer. (Solidworks CAD design, Blender visualization)</p>
+
+                <!-- carousel -->
+                {% if galleries %}
+
+                {% for gallery in galleries %}
+
+                {% if gallery.title == 'tls_3d_video_white_cab' %}
+
+                <div class="container">
+                    <div class=" row py-0 justify-content-center align-items-center mx-auto text-center">
+
+
+                        <div class="container py-1 py-lg-1 ">
+                            <div class="row justify-content-center align-items-center mx-auto text-center">
+
+                                <div class="container my-flipster">
+                                    <ul>
+
+                                        {% for photo in gallery.public %}
+
+                                        <li><img src="{{ photo.get_wide_url }}" alt="{{ photo.title }}"></li>
+
+                                        {% endfor %}
+
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="separ">
+                    <br><br><br><br>
+                </div>
+
+                {% endif %}
+
+                {% endfor %}
+
+                {% else %}
+
+                <div class="row col-lg-12">{% trans "No galleries were found" %}.</div>
+
+                {% endif %}
+
+                {% include "photologue/includes/paginator.html" %}
+
+            </div>
+
+            <!-- section title -->
+            <div class="container px-2 px-md-4 px-lg-5 px-lg-5 mx-2 mx-md-5 mx-lg-5 py-1">
+                <hr>
+                <div class="row justify-content-between align-items-end p-0 m-0">
+                    <div class="align-bottom col">
+                        <h2>RFID (NFC) feature description</h2>
+                    </div>
+                </div>
+                <hr>
+
+
+                <!-- spacer -->
+                <div class="py-md-3 py-lg-4"></div>
+
+                <!-- body paragraph -->
+                <p class="col-12 col-lg-10 p-4 p-lg-5 mx-md-0 mx-lg-auto text-sm-left text-lg-center">Explaining the RFID (remote
+                    field identification) feature of of thermal tickets with a chip and printers with an RFID
+                    reader/writer. Made for the company website. (Blender visualization, Illustrator desc. texts)</p>
+
+                <!-- fancybox gallery -->
+                {% if galleries %}
+                <!-- cycle galleries -->
+                {% for gallery in galleries %}
+                <!-- filter photologue galleries and only display the ones tagged with 'Design'-->
+                {% if gallery.title == 'tls_3d_video_rfid' %}
+
+                <div class="container no-gutters">
+                    <div class="col-12 efekty_gal_list">
+
+                        {% for photo in gallery.public %}
+
+                        <a data-fancybox="images" id="fancybox" class="fancybox" href="{{ photo.image.url }}">
+                            <img src="{{ photo.get_display_url }}"
+                                 class=" thumbnail col-12 col-sm-3 col-md-3 mx-0 my-0 mx-md-1 px-md-0  my-md-2 "
+                                 alt="{{ photo.title }}">
+                        </a>
+
+                        {% endfor %}
+
+                        <div style="min-height: 3rem;">
+                        </div>
+                    </div>
+                </div>
+
+                {% endif %}
+
+                {% endfor %}
+
+                {% else %}
+
+                <div class="row col-lg-12">{% trans "No galleries were found" %}.</div>
+
+                {% endif %}
+
+            </div>
+
+            <!-- spacer -->
+            <div class="py-md-3 py-lg-4"></div>
+
+            <!-- section title -->
+            <div class="container px-2 px-md-4 px-lg-5 px-lg-5 mx-2 mx-md-5 mx-lg-5 py-1">
+                <hr>
+                <div class="row justify-content-between align-items-end p-0 m-0">
+                    <div class="align-bottom col">
+                        <h2>Magnetic & RFID plastic cards</h2>
+                    </div>
+                </div>
+                <hr>
+
+                <!-- body paragraph -->
+                <p class="col-12 col-lg-10 p-4 p-lg-5 mx-md-0 mx-lg-auto text-sm-left text-lg-center">Explaining custom
+                    plastic cards features, Magnetic strip vs. RFID. (again done with awesome simple Blender
+                    animation capabilities)</p>
+
+                <!-- body image -->
+                <img class="col-5 py-2"
+                     src="https://corebots.s3-us-west-2.amazonaws.com/media/photologue/photos/design_tls_3d1.gif">
+
+                <!-- body image -->
+                <img class="col-5 py-2"
+                     src="https://corebots.s3-us-west-2.amazonaws.com/media/photologue/photos/design_tls_3d2.gif">
+
+                <!-- spacer -->
+                <div id="separ">
+                    <br><br><br><br>
+                </div>
+            </div>
+
+            <!-- spacer -->
+            <div class="py-md-3 py-lg-4"></div>
+
+            <!-- section title -->
+            <div class="container px-2 px-md-4 px-lg-5 px-lg-5 mx-2 mx-md-5 mx-lg-5 py-1">
+                <hr>
+                <div class="row justify-content-between align-items-end p-0 m-0">
+                    <div class="align-bottom col">
+                        <h2>General renders</h2>
+                    </div>
+                </div>
+                <hr>
+
+
+                <!-- spacer -->
+                <div class="py-md-3 py-lg-4"></div>
+
+                <!-- body paragraph -->
+                <p class="col-12 col-lg-10 p-4 p-lg-5 mx-md-0 mx-lg-auto text-sm-left text-lg-center">A sample of some
+                    renders for advertising purposes. These can be found applied in the Ads, flyers and soc.
+                    media posts section. (Blender) <br>The ball is cool huh? :)</p>
+
+                <!-- fancybox gallery -->
+                {% if galleries %}
+                <!-- cycle galleries -->
+                {% for gallery in galleries %}
+                <!-- filter photologue galleries and only display the ones tagged with 'Design'-->
+                {% if gallery.title == 'tls_3d_video_renders' %}
+
+                <div class="container no-gutters">
+                    <div class="col-12 efekty_gal_list">
+
+                        {% for photo in gallery.public %}
+
+                        <a data-fancybox="images" id="fancybox" class="fancybox" href="{{ photo.image.url }}">
+                            <img src="{{ photo.get_display_url }}"
+                                 class=" thumbnail col-12 col-sm-3 col-md-3 mx-0 my-0 mx-md-1 px-md-0  my-md-2 "
+                                 alt="{{ photo.title }}">
+                        </a>
+
+                        {% endfor %}
+
+                        <div style="min-height: 3rem;">
+                        </div>
+                    </div>
+                </div>
+
+                {% endif %}
+
+                {% endfor %}
+
+                {% else %}
+
+                <div class="row col-lg-12">{% trans "No galleries were found" %}.</div>
+
+                {% endif %}
+
+            </div>
+
+            <!-- spacer -->
+            <div class="py-md-3 py-lg-4"></div>
+
+            <!-- section title -->
+            <div class="container px-2 px-md-4 px-lg-5 px-lg-5 mx-2 mx-md-5 mx-lg-5 py-1">
+                <hr>
+                <div class="row justify-content-between align-items-end p-0 m-0">
+                    <div class="align-bottom col">
+                        <h2>Other public YouTube animations</h2>
+                    </div>
+                </div>
+                <hr>
+                <!-- spacer -->
+                <div class="py-md-3 py-lg-4"></div>
+                <iframe width="930" height="552" src="https://www.youtube.com/embed/irximGmP_nY"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+            </div>
+
+            <!-- spacer -->
+            <div class="py-md-3 py-lg-4"></div>
+
+            <!-- section title -->
+            <div class="container px-2 px-md-4 px-lg-5 px-lg-5 mx-2 mx-md-5 mx-lg-5 py-1">
+                <hr>
+                <div class="row justify-content-between align-items-end p-0 m-0">
+                    <div class="align-bottom col">
+                        <h2>Instructional videos</h2>
+                    </div>
+                </div>
+                <hr>
+
+                <!-- body paragraph -->
+                <p class="col-12 col-lg-10 p-4 p-lg-5 mx-md-0 mx-lg-auto text-sm-left text-lg-center">Created
+                    between 2013-2014 for product presentation purposes and as general instructions.
+                    Filmed at TLS - Boca Systems offices with a team of 4 people - hand model, camera,
+                    second camera and lighting. ​For more videos please visit the official
+                    TLS - Boca Systems YouTube channel.
+                    (All editing done in FCPX) ​ </p>
+
+                <!-- embedded youtube -->
+                <iframe width="930" height="552" src="https://www.youtube.com/embed/irximGmP_nY"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                        allowfullscreen></iframe>
+
+            </div>
+
+            <!-- spacer -->
+            <div id="separ">
+                <br><br><br><br>
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
+<!-- spacer -->
+<div class="py-md-3 py-lg-4"></div>
+
+{% endblock %}
