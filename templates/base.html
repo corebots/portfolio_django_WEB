@@ -213,11 +213,11 @@
 
     // initialize swup for pages transitions
 
-<!--//    const swup = new Swup();-->
+//    const swup = new Swup();
 
     // this event runs for every page view after initial load
 
-<!-- //   swup.on('contentReplaced', init);-->
+ //   swup.on('contentReplaced', init);
 
 
     // Init ScrollMagic
@@ -239,12 +239,12 @@
     // reinitializing the scrollmagic function after swup repaints, from https://github.com/swup/swup/issues/108
     // because swup disables other code outside of repainted
 
-<!--    document.addEventListener('swup:contentReplaced', function () {-->
-<!--        new ScrollMagic.Scene({triggerElement: "#parallax1"})-->
-<!--            .setTween("#parallax1 > div", {y: "85%", ease: Power1.easeOut})-->
-<!--            //.addIndicators()-->
-<!--            .addTo(ctrl);-->
-<!--    });-->
+    document.addEventListener('swup:contentReplaced', function () {
+        new ScrollMagic.Scene({triggerElement: "#parallax1"})
+            .setTween("#parallax1 > div", {y: "85%", ease: Power1.easeOut})
+            //.addIndicators()
+            .addTo(ctrl);
+    });
 
 
     // downslide arrow on index for tweening after page repaint
