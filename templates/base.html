@@ -199,10 +199,6 @@
       });
     })(jQuery);
 
-
-    // initialize swup for pages transitions
-
-    const swup = new Swup();
  // trying to reload fancybox as suggested by swup doc https://swup.js.org/getting-started/reloading-javascript
 
     function init() {
@@ -216,6 +212,11 @@
             })(jQuery);
         }
     }
+
+    // initialize swup for pages transitions
+
+    const swup = new Swup();
+
     // this event runs for every page view after initial load
 
     swup.on('contentReplaced', init);
