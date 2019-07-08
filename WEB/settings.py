@@ -11,8 +11,10 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
 import os
+
 # import environ
 # for importing example_settings.env as in https://stackoverflow.com/questions/44693485/where-do-i-set-environment-variables-for-django
+
 
 
 #env = environ.Env(
@@ -26,6 +28,7 @@ import os
 #AWS_ACCESS_KEY_ID=  env('AWS_ACCESS_KEY_ID')
 #AWS_SECRET_ACCESS_KEY= env('AWS_SECRET_ACCESS_KEY')
 #AWS_STORAGE_BUCKET_NAME= env('AWS_STORAGE_BUCKET_NAME')
+
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY= os.environ.get('SECRET_KEY')
@@ -44,7 +47,6 @@ DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -55,14 +57,13 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'portfolio.apps.PortfolioConfig',
+    'django.contrib.sites',
+    'photologue_custom',
     'photologue',
     'sortedm2m',
-    'django.contrib.sites',
-    'taggit',
-    'photologue_custom',
-    'sass_processor',
-    #'storages',
     'fancybox',
+    'taggit',
+    #'storages',
     #'collectfast',
 ]
 
