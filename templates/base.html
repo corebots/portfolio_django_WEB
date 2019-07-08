@@ -205,14 +205,22 @@
         if (document.querySelector('#fancybox')) {
             (function( $ ) {
               $(function() {
-<!--                setTimeout(() => {-->
                     $("#fancybox").fancybox();
-<!--                }, 300);-->
               });
             })(jQuery);
         }
     }
-
+    document.addEventListener('swup:contentReplaced', function () {
+    function init() {
+        if (document.querySelector('#fancybox')) {
+            (function( $ ) {
+              $(function() {
+                    $("#fancybox").fancybox();
+              });
+            })(jQuery);
+        }
+    }
+});
     // initialize swup for pages transitions
 
     const swup = new Swup();
