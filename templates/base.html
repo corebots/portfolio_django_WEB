@@ -201,7 +201,7 @@
 
 
      // trying to reload fancybox as suggested by swup doc https://swup.js.org/getting-started/reloading-javascript
-
+    setTimeout(() => {
     function init() {
         if (document.querySelector('#fancybox')) {
             (function( $ ) {
@@ -212,8 +212,8 @@
         }
     }
 
-    setTimeout(() => {
-      fancybox()
+
+
     }, 300);
 
 
