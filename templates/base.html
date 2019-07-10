@@ -39,7 +39,7 @@
 <body>
 
 <!-- wrap whole page in swup container for page transitions-->
-<main id="swup" class="transition-fade">
+<!--<main id="swup" class="transition-fade">-->
 
 <!-- navbar  -->
 <nav class="navbar navbar-expand-lg navbar-light bg-transparent fixed-top navbar-fixed-top" role="navigation">
@@ -100,13 +100,16 @@
 
 {% endblock %}
 
-<footer style="background-color: black; overflow: hidden; box-shadow: 0 50vh 0 50vh #000;" class="container  ">
+
+<!-- FOOTER -->
+
+<footer style="background-color: black; overflow: hidden; box-shadow: 0 60vh 0 60vh #000;" class="container-fluid px-3 ">
     <br>
-    <div class=" container justify-content ">
+    <div class=" container-fluid justify-content px-3 ">
         <div class="row">
 
             <div class="col-4 p-2 p-lg-3 px-lg-2 justify-content-left text-left" style="color:gray">
-                <small style="font-weight: bold;"><a style="color: gray" href="https://github.com/corebots">GitHub</a><br>CV</small>
+                <small ><a style="color: gray" href="https://github.com/corebots"><i style="vertical-align:middle;" class="fa fa-github fa-2x" aria-hidden="true"></i>&nbsp;&nbsp;GitHub</a></small>
             </div>
 
             <div class="col-4 p-2 p-lg-3 px-lg-2 justify-content-center text-center" style="color:gray">
@@ -114,15 +117,15 @@
             </div>
 
             <div class="col-4 p-2 p-lg-3 px-lg-2 justify-content-right text-right" style="color:gray">
-                <small style="font-weight: bold;"><a style="color: gray" href="{% url 'contact' %}">Send me a message</a><br><a style="color: gray" href="{% url 'about' %}">Disclaimer</a></small>
+                <small ><a style="color: gray" href="{% url 'about' %}">Disclaimer</a><br><a style="color: gray" href="{% url 'contact' %}">Contact</a><br><a style="color: gray" href="#">CV</a></small>
             </div>
         </div>
 
     </div>
 
 
-    <div class=" row justify-space-between">
-        <div class="col-12  p-5 p-sm-5 justify-content-center text-center" style="text-align:center">
+    <div class="row justify-content-center">
+        <div class="col-auto p-5 p-lg-4">&hairsp;
             <a href="mailto:hello@corebots.design">
 
                 <svg width="31" height="20" viewBox="0 0 31 20" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -131,11 +134,9 @@
                           fill="#4F4F4F"/>
                 </svg>
             </a>
-
+        <br><br>
         </div>
-        <!--<hr style="background-color: #4F4F4F !important; " class=" mx-auto col-1 m-5" >-->
-
-        <div id="MMMmovemenu" class=" col-12 text-center">
+        <div id="MMMmovemenu" class=" col-12 text-center p-3">
             <a href="#separ-jump-here">
                 <div style="min-height:24px;" id="AAAAAarrow-down">
                     <i style="color: #4F4F4F" class="fa fa-chevron-up last"></i>
@@ -145,13 +146,13 @@
         </div>
 </footer>
 
-    <a href="{% url 'home' %}" style="color: white">.</a>
-</main>
+<!--    <a href="{% url 'home' %}" style="color: white">.</a>-->
+<!--</main>-->
+
 
 <script src="https://code.jquery.com/jquery-3.4.1.js"
         integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
-
-<script src="https://unpkg.com/swup@latest/dist/swup.min.js"></script>
+<!--<script src="https://unpkg.com/swup@latest/dist/swup.min.js"></script>-->
 
 <!-- Scrollmagic Core -->
 <script src="{% static 'scrollmagic/scrollmagic/minified/ScrollMagic.min.js' %}"></script>
@@ -203,32 +204,40 @@
         if (document.querySelector('#fancybox')) {
             (function( $ ) {
               $(function() {
-                    $("#fancybox").fancybox();
+                    $("#fancybox").fancybox({
+                        history: false
+                    });
               });
             })(jQuery);
         }
     }
 
+
+
+
+
     // initialize swup for pages transitions
 
-    const swup = new Swup();
+    // const swup = new Swup();
 
     // this event runs for every page view after initial load
 
-    swup.on('contentReplaced', init);
+    // swup.on('contentReplaced', init);
 
- // trying to reload fancybox as suggested by swup doc https://swup.js.org/getting-started/reloading-javascript
+    // trying to reload fancybox as suggested by swup doc https://swup.js.org/getting-started/reloading-javascript
 
 
-    document.addEventListener('swup:contentReplaced', function () {
+    // document.addEventListener('swup:contentReplaced', function () {
 
-    (function( $ ) {
-              $(function() {
-                    $("#fancybox").fancybox();
-              });
-            })(jQuery);
+    // (function( $ ) {
+    //           $(function() {
+    //               $("#fancybox").fancybox({
+    //                     history: false
+    //                 });
+    //         });
+    //         })(jQuery);
 
-    });
+    // });
 
 
     // Init ScrollMagic
@@ -250,12 +259,12 @@
     // reinitializing the scrollmagic function after swup repaints, from https://github.com/swup/swup/issues/108
     // because swup disables other code outside of repainted
 
-    document.addEventListener('swup:contentReplaced', function () {
-        new ScrollMagic.Scene({triggerElement: "#parallax1"})
-            .setTween("#parallax1 > div", {y: "85%", ease: Power1.easeOut})
-            //.addIndicators()
-            .addTo(ctrl);
-    });
+    // document.addEventListener('swup:contentReplaced', function () {
+    //     new ScrollMagic.Scene({triggerElement: "#parallax1"})
+    //         .setTween("#parallax1 > div", {y: "85%", ease: Power1.easeOut})
+    //         //.addIndicators()
+    //         .addTo(ctrl);
+    // });
 
 
     // downslide arrow on index for tweening after page repaint
@@ -309,61 +318,61 @@
 
     // reinitialize downslide arrow button for tweening after page repaint
 
-    document.addEventListener('swup:contentReplaced', function () {
+    // document.addEventListener('swup:contentReplaced', function () {
 
-    jQuery.noConflict();
-    (function( $ ) {
-          $(function() {
-                $(function(){
+    // jQuery.noConflict();
+    // (function( $ ) {
+    //       $(function() {
+    //             $(function(){
 
-                var wrapper = $("#movewrapper"),
-                    $menu = $("#movemenu"),
-                    $window = $(window);
+    //             var wrapper = $("#movewrapper"),
+    //                 $menu = $("#movemenu"),
+    //                 $window = $(window);
 
-                $menu.on("click","a", function(){
-                    var $this = $(this),
-                        href = $this.attr("href"),
-                        topY = $(href).offset().top;
+    //             $menu.on("click","a", function(){
+    //                 var $this = $(this),
+    //                     href = $this.attr("href"),
+    //                     topY = $(href).offset().top;
 
-                    TweenMax.to($window, 1, {
-                        scrollTo:{
-                            y: topY,
-                            autoKill: true
-                        },
-                        ease:Power3.easeOut
-                     });
+    //                 TweenMax.to($window, 1, {
+    //                     scrollTo:{
+    //                         y: topY,
+    //                         autoKill: true
+    //                     },
+    //                     ease:Power3.easeOut
+    //                  });
 
-                  return false;
-                });
-            });
-          });
-        })(jQuery);
-    });
+    //               return false;
+    //             });
+    //         });
+    //       });
+    //     })(jQuery);
+    // });
 
 
     // reinitializing top position after page change
 
-    document.addEventListener('swup:contentReplaced', function () {
-            window.scrollTo(0, 0);
-    });
+    // document.addEventListener('swup:contentReplaced', function () {
+    //         window.scrollTo(0, 0);
+    // });
 
 
     // reinitializing hamburger animations after a link in the menu has been clicked - new page change
 
-    document.addEventListener('swup:contentReplaced', function () {
-        jQuery.noConflict();
-        (function( $ ) {
-          $(function() {
-                jQuery('.hamburger').on('click', function () {
-                  jQuery('.hamburger').toggleClass('is-active');
-                });
+    // document.addEventListener('swup:contentReplaced', function () {
+    //     jQuery.noConflict();
+    //     (function( $ ) {
+    //       $(function() {
+    //             jQuery('.hamburger').on('click', function () {
+    //               jQuery('.hamburger').toggleClass('is-active');
+    //             });
 
-                jQuery( '.nav-item a' ).on("click", function(){
-                  jQuery('.hamburger').removeClass('is-active');
-                });
-          });
-        })(jQuery);
-     });
+    //             jQuery( '.nav-item a' ).on("click", function(){
+    //               jQuery('.hamburger').removeClass('is-active');
+    //             });
+    //       });
+    //     })(jQuery);
+    //  });
 
 
     // flipster coverflow-like carousel
@@ -376,18 +385,16 @@
     })(jQuery);
 
 
-    // reinitializing hamburger animations after a link in the menu has been clicked - new page change
+    // // reinitializing hamburger animations after a link in the menu has been clicked - new page change
 
-    document.addEventListener('swup:contentReplaced', function () {
-        jQuery.noConflict();
-        (function( $ ) {
-             $(function() {
-                $('.my-flipster').flipster();
-            });
-        })(jQuery);
-     });
-
-
+    // document.addEventListener('swup:contentReplaced', function () {
+    //     jQuery.noConflict();
+    //     (function( $ ) {
+    //          $(function() {
+    //             $('.my-flipster').flipster();
+    //         });
+    //     })(jQuery);
+    //  });
 
 
 

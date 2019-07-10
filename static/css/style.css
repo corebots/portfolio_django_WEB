@@ -276,6 +276,7 @@ html.is-animating .transition-fade {
   margin: 0 auto;
   text-align: center;
   animation: bounce 5s infinite;
+
 }
 
 #arrow-down i {
