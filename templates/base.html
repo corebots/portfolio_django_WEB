@@ -375,14 +375,22 @@
     //  });
 
 
-    // flipster coverflow-like carousel
+    // flipster carousel
 
     jQuery.noConflict();
     (function( $ ) {
       $(function() {
-        $('.my-flipster').flipster();
+        $('.my-flipster').flipster({
+            style: 'carousel',
+            spacing: -0.5,
+            loop: true,
+            autoplay: 5000
+        });
       });
     })(jQuery);
+
+
+
 
 
     // // reinitializing hamburger animations after a link in the menu has been clicked - new page change

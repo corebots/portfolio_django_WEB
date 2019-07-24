@@ -28,7 +28,7 @@
 
 <!-- cover VIDEO -->
     <video style=" height:100vh !important;" class=" " src="{% static 'video/bg.mp4' %}"
-           type="video/mp4" autoplay loop muted></video>
+           type="video/mp4" autoplay loop muted poster="{% static 'img/loadingvideo.jpg' %}"></video>
     <!--          <video style=" height:100vh !important; " class=" " src="{% static 'video/bg.wemb' %}" type="video/webm" autoplay loop></video>-->
     <!--          <video style="height:100vh !important; " class=" " src="{% static 'video/bg.ogv' %}" type="video/ogg" autoplay loop></video>-->
 
@@ -54,6 +54,8 @@
 
        <div id="separ-jump-here">
         </div>
+
+
 
         {% if galleries %}
         {% for gallery in galleries %}
@@ -137,8 +139,6 @@
 
 <!--  </ul>-->
 <!--</div>-->
-
-
 
 
 

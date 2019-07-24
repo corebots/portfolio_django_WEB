@@ -221,6 +221,7 @@ hr {
 
   .last {
     margin-bottom: 24px !important; } }
+
 /* swup */
 .transition-fade {
   transition: 0.23s;
@@ -292,5 +293,6 @@ html.is-animating .transition-fade {
 
 .scrollhider {
   opacity: 0 !important; }
+
 
 /*# sourceMappingURL=style.css.map */
